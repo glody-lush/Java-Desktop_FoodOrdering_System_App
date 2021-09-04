@@ -1,0 +1,10 @@
+create database OnlineFoodOrderingSystem;
+use OnlineFoodOrderingSystem;
+ create table Customers(ID int auto_increment unique not null ,name varchar(100)not null,surname varchar(100)not null,email varchar(150)not null primary key,phoneNo varchar(10),areaAddress varchar(100),street varchar(100),flat int,pasword varchar(100)not null,cnfirmpassword varchar(100)not null );
+ create table Employees(ID int auto_increment unique not null, name varchar(20)not null, surname varchar(50)not null, cellphone varchar(10), staffNo varchar(8) not null primary key, password varchar(30) not null);
+ create table Orders(Order_No int not null primary key auto_increment,email varchar(150)not null, Items varchar(100)not null,Quantity varchar(10)not null,Price varchar(10)not null,Status varchar(100)not null, FOREIGN KEY (email) references customers(email));
+ alter table orders add column total_Price varchar(50) not null;
+
+create table Rate(ID int auto_increment not null primary key, email varchar(150)not null, feedback varchar(50) not null, foreign key(email) references customers(email));
+create table ManagerLogin(name varchar(20) not null, staffNumber varchar(10) not null primary key, password varchar(10) not null );
+insert into ManagerLogin(name,staffNumber,password) values('lushombo','216042062','Lus@2062');
